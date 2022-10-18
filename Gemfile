@@ -31,10 +31,11 @@ gem 'activerecord-postgis-adapter', '~> 6'
 gem 'devise', '~> 4.7'
 gem 'evil_icons', '~> 1.10'
 gem 'premailer-rails', '~> 1.11'
+gem 'active_decorator', '~> 1.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.9'
   gem 'factory_bot_rails', '~> 5'
 end

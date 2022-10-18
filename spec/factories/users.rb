@@ -23,10 +23,14 @@
 #
 FactoryBot.define do
   factory :user do
-    username { "MyString" }
+    sequence :username do |n|
+      "username#{n}"
+    end
     first_name { "MyString" }
     last_name { "MyString" }
-    email { "MyString" }
+    email { "#{SecureRandom.hex(10)}@example.com" }
     is_public { false }
+    password {"Admin1234"}
+    password_confirmation {"Admin1234"}
   end
 end

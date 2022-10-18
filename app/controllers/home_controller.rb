@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    flash[:notice] = "hi, there!"
+    redirect_to(timelines_path) if user_signed_in?
   end
 end

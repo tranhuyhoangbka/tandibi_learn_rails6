@@ -45,6 +45,10 @@ class User < ApplicationRecord
     @login || username || email
   end
 
+  def to_param
+    username
+  end
+
   def self.find_authenticatable(login)
     where("username = :value OR email = :value", value: login).first
   end
