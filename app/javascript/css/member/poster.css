@@ -50,7 +50,7 @@
 }
 .body-member
 .poster .controls .options .option {
-  @apply text-sm;
+  @apply text-sm mr-1;
 }
 .body-member
 .poster .controls .options .icon {
@@ -94,4 +94,9 @@
   @apply object-cover;
   height: 80px;
   width: 80px;
+}
+
+.body-member
+.poster .controls .options .active .icon {
+  @apply bg-teal-200 text-dark-800;
 }
