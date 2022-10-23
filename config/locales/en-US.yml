@@ -4,7 +4,7 @@ en-US:
     followers:
       zero: no followers
       one: 1 follower
-      other: %{count} kids
+      other: "%{count} followers"
   posts:
     form:
       whats_happening: What's happening?
