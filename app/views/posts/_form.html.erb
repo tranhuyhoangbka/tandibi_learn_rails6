@@ -1,5 +1,6 @@
 <% form_id = "poster-#{SecureRandom.hex(3)}" %>
 <% thread = local_assigns[:thread] %>
+<p><%= t(".posted_by", username: current_user.username) %></p>
 <div class="poster flex <%= "p-3" unless thread %>">
   <%= form_with model: Post.new, id: form_id, multipart: true do |f| %>
     <%= f.hidden_field :postable_type, value: "Status" %>
@@ -7,7 +8,7 @@
     <div class="poster js-status-poster">
       <%= f.text_area :status_text,
         required: true,
-        placeholder: "What's happening?"  %>
+        placeholder: t(".whats_happening")  %>
     </div>
 
     <% unless thread %>
@@ -38,7 +39,7 @@
         </div>
       </div>
       <div>
-        <%= f.submit "Say", class: "submit-btn" %>
+        <%= f.submit t("common.say"), class: "submit-btn" %>
       </div>
     </div>
   <% end %>

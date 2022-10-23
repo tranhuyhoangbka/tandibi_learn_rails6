@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :set_locale
   before_action :config_devise_params, if: :devise_controller?
   
   layout :layout_by_resource
@@ -29,5 +30,10 @@ class ApplicationController < ActionController::Base
       :password,
       :password_confirmation
     ])
+  end
+
+  def set_locale
+    return unless current_user
+    I18n.locale = current_user.locale
   end
 end

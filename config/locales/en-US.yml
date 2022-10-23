@@ -1,0 +1,11 @@
+en-US:
+  common:
+    say: Say
+    followers:
+      zero: no followers
+      one: 1 follower
+      other: %{count} kids
+  posts:
+    form:
+      whats_happening: What's happening?
+      posted_by: Posted by @%{username}
