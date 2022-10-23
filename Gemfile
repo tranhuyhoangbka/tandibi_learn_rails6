@@ -33,6 +33,9 @@ gem 'evil_icons', '~> 1.10'
 gem 'premailer-rails', '~> 1.11'
 gem 'active_decorator', '~> 1.3'
 gem "aws-sdk-s3", require: false
+gem 'faraday', '~> 1.0'
+gem 'active_model_serializers', '~> 0.10'
+gem 'delayed_job_active_record', '~> 4.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,6 +59,7 @@ group :test do
   gem 'launchy', '~> 2.5'
   gem 'capybara', '~> 3.31'
   gem 'apparition', '~> 0.5'
+  gem 'vcr', '~> 5.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -42,14 +42,23 @@
       }
     },
     mounted() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((pos) => {
-          const coords = pos.coords
-          this.coordinates.lat = coords.latitude
-          this.coordinates.lng = coords.longitude
+      this.unsubscribe = this.$store.subscribe((mutation, state) => {
+        if (mutation.type === "SET_COORDINATES") {
+          this.coordinates.lat = this.$store.state.coordinates.lat
+          this.coordinates.lng = this.$store.state.coordinates.lng
           this.redraw()
-        })
-      }
+        } else if (mutation.type == "SET_SIGHT_SELECTED_PLACE") {
+          const selectedPlace = this.$store.state.sight.selectedPlace
+          const placeCoords = selectedPlace.coordinates
+          this.coordinates.lat = placeCoords.lat
+          this.coordinates.lng = placeCoords.lng
+          this.redraw()
+        }
+      })
+      this.redraw()
+    },
+    beforeDestroy() {
+      this.unsubscribe()
     },
   })
   export default Component

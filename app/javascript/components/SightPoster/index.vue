@@ -1,5 +1,7 @@
 <template>
   <div id="sight">
+    <input type="hidden" name="post[sight_place_id]"
+      :value="selectedPlace.id">
     <PlaceFinder/>
     <div class="block sm:hidden">
       <PlaceList/>
@@ -21,6 +23,11 @@
   import PlaceFinder from "./PlaceFinder"
   import PlaceList from "./PlaceList"
   export default {
+    computed: {
+      selectedPlace() {
+        return this.$store.state.sight.selectedPlace || {}
+      }
+    },
     components: {
       Map,
       PlaceFinder,
