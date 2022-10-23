@@ -13,7 +13,7 @@
     <%= render "layouts/inside_modal",
       title: "",
       modal_class: "picture_modal_#{picture.id}" do %>
-      <img src="<%= rails_blob_path(picture.file) %>">
+      <img src="<%= rails_blob_path(picture.file) if picture.file.present? %>">
     <% end %>
   <% end %>
 </div>
@@ -46,7 +46,7 @@
         <a href="#">
           <div class="picture js-modal-open"
             data-modal-class="picture_modal_<%= picture.id %>">
-            <img src="<%= rails_blob_path(picture.file) %>">
+            <img src="<%= rails_blob_path(picture.file) if picture.file.present? %>">
           </div>
         </a>
       <% end %>

@@ -29,6 +29,8 @@ class User < ApplicationRecord
          authentication_keys: [:login], reset_password_keys: [:login]
 
   attr_writer :login
+
+  extract_roles_from :role
   
   validates :email, uniqueness: true, format: {with: URI::MailTo::EMAIL_REGEXP}
   validates :username, uniqueness: true
@@ -47,6 +49,10 @@ class User < ApplicationRecord
 
   def to_param
     username
+  end
+
+  def role
+    username == "samsamxxx" ? :admin : :member
   end
 
   def self.find_authenticatable(login)
